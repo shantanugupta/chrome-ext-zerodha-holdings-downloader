@@ -1,0 +1,26 @@
+{
+    "manifest_version": 3,
+    "name": "Zerodha holdings reader",
+    "version": "1.0",
+    "description": "This extension will read your holdings page and will convert data into json.",
+    "permissions": ["storage", "activeTab", "scripting"],
+    "action": {
+      "default_popup": "popup.html",
+      "default_icon": {
+        "16": "icon16.png",
+        "48": "icon48.png",
+        "128": "icon128.png"
+      }
+    },
+    "background": {
+      "service_worker": "background.js"
+    },
+    "content_scripts": [
+      {
+        "matches": ["https://console.zerodha.com/portfolio/holdings*"],
+        "js": ["content.js", "jquery-3.7.1.min.js"],
+        "css": ["content.css"]
+      }
+    ]
+  }
+   
